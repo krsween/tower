@@ -6,6 +6,7 @@ $navbar-inverse-link-color: #5AADBB;
 $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts";
 $font-family-sans-serif: 'Roboto', sans-serif;
 $font-size-base:          12px;
+$table-bg-accent: rgba(0, 0, 0, 0.05);
 
 /**
  *  Do not remove this comments bellow. It's the markers used by wiredep to inject
@@ -14,9 +15,15 @@ $font-size-base:          12px;
 // bower:scss
 // endbower
 
+*:focus {
+  outline: none !important;
+}
+
 a {
 
-  &:hover {
+  &:hover,
+  &.active,
+  &:focus {
     text-decoration: none;
   }
 }
@@ -30,6 +37,18 @@ a {
   h1 {
     font-weight: 100;
   }
+}
+
+
+footer {
+  position: fixed;
+  padding-top: 1.5em;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: white;
+  border: solid thin rgba(0, 0, 0, 0.05);
 }
 
 /**

@@ -11,16 +11,17 @@
     // Global vars
     var vm = this;
     $scope.suiteColumnTotals = [];
+    $scope.suites = [];
 
 
     mockSuites.get()
       .then(function (mockData) {
         // Assign the response data to the scope.
-        $scope.mockSuites = mockData;
+        $scope.suites = mockData;
         // Calculate Column Totals
         $scope.suiteColumnTotals = vm.calculateColumnTotals(mockData);
       }, function () {
-        $log.error('The mockSuites service is failing.');
+        $log.error('The suites service is failing.');
       });
 
     /**
