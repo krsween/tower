@@ -19,7 +19,9 @@
       <!-- TABLE BODY -->
       <tbody>
         <tr ng-repeat="suite in mockSuites" class="text-center">
-          <td>{{ suite.suiteName }}</td>
+          <td>
+            <strong>{{ suite.suiteName }}</strong>
+          </td>
           <td ng-repeat="build in suite.builds" class="{{ build.status }}">
             <a ng-href="#/details/{{ build.id }}">
               <!-- FAILURE INFO -->
@@ -37,6 +39,19 @@
             </a>
           </td>
         </tr>
+        <tr>
+          <td>
+            <strong>Totals</strong>
+          </td>
+          <td ng-repeat="total in mockSuites | columnFooters">
+            <span class="text-success">P: {{ total.totalPasses }}</span><br />
+            <span class="text-danger">F: {{ total.totalFails }}</span><br/>
+            <span class="text-muted">T: {{ total.totalSpecs }}</span><br /><br />
+
+            {{ total.buildFails }}
+          </td>
+        </tr>
+
       </tbody>
     </table>
 

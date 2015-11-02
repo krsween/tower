@@ -18,8 +18,16 @@
 
     }));
 
-    it('should define more than 5 awesome things', function() {
-      expect(1).toBe(1);
+    describe('Function: humanizeDatestamp(date)', function () {
+        it('should be defined', function () {
+            expect(scope.humanizeDatestamp).toBeDefined();
+        });
+        it('should return a friendly version of today\'s date.', function () {
+          var mockDateNow = new Date(),
+              mockDateWeekAgo = moment(mockDateNow).subtract(1, 'week').format().toString();
+          expect(scope.humanizeDatestamp(mockDateNow)).toBe('a few seconds ago');
+          expect(scope.humanizeDatestamp(mockDateWeekAgo)).toBe('7 days ago');
+        });
     });
   });
 })();
