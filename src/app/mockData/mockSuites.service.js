@@ -19,7 +19,7 @@
         // $timeout mocks latency/load time
         $timeout(function () {
           deferredSuiteData.resolve(mockSuiteData);
-        }, 0);
+        }, 1500);
 
         // Return the promise
         return deferredSuiteData.promise;

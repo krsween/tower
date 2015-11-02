@@ -1,4 +1,4 @@
-/* globals moment */
+/*globals moment*/
 (function () {
   'use strict';
 
@@ -71,6 +71,6 @@
         return columnTotals;
       }
       return suites;
-    }
+    };
   }
 })();
