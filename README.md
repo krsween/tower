@@ -25,7 +25,7 @@ $ npm i -g gulp
 
 ```sh
 $ git clone git@github.com:krsween/tower.git
-$ cd dillinger
+$ cd tower
 $ npm i -d
 $ bower install
 $ gulp serve
