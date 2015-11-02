@@ -43,11 +43,10 @@
           <td>
             <strong>Totals</strong>
           </td>
-          <td ng-repeat="total in mockSuites | columnFooters">
+          <td ng-repeat="total in suiteColumnTotals">
             <span class="text-success">P: {{ total.totalPasses }}</span><br />
             <span class="text-danger">F: {{ total.totalFails }}</span><br/>
             <span class="text-muted">T: {{ total.totalSpecs }}</span><br /><br />
-
             {{ total.buildFails }}
           </td>
         </tr>
