@@ -1,4 +1,5 @@
-(function() {
+/* globals moment */
+(function () {
   'use strict';
 
   angular
@@ -17,6 +18,12 @@
       });
 
 
+    $scope.humanizeDatestamp = function (date) {
+      var today = moment(new Date()),
+          then = moment(date);
+
+      return then.from(today);
+    };
 
     // vm.awesomeThings = [];
     // vm.classAnimation = '';

@@ -2,40 +2,41 @@
   <div class="col-xs-12">
 
     <table class="table table-striped table-bordered">
+      <!-- TABLE HEADERS -->
       <thead>
-      <tr>
-        <th>Suite</th>
-        <th class="text-center">
-          <small>
-            Fri <br />
-            Oct-31 <br />
-            <span class="text-muted">
-              Today <i class="fa fa-calendar"></i>
-            </span>
-          </small>
-        </th>
-      </tr>
+        <tr>
+          <th>Test Suite</th>
+          <!-- REPEATED DATE COLUMN HEADERS -->
+          <th ng-repeat="date in mockSuites | columnHeaders">
+            {{ date | date:'EEE' }} <br />
+            {{ date | date:'MMM-d' }} <br />
+            <small class="text-muted">
+                {{ humanizeDatestamp(date) }}
+            </small>
+          </th>
+        </tr>
       </thead>
+      <!-- TABLE BODY -->
       <tbody>
-      <tr ng-repeat="suite in mockSuites" class="text-center">
-        <td>{{ suite.suiteName }}</td>
-        <td ng-repeat="build in suite.builds" class="{{ build.status }}">
-          <a ng-href="#/details/{{ build.id }}">
-            <!-- FAILURE INFO -->
-            <div ng-if="build.status === 'fail'">
-              <span class="label label-success">{{ build.totalPasses }}</span>
-              <span class="label label-danger">{{ build.totalFails }}</span>
-              <span class="label label-default">{{ build.totalSpecs }}</span>
-            </div>
-            <!-- SUCCESS INFO -->
-            <div ng-if="build.status === 'pass'">
-              <span class="text-success">
-                {{ build.totalSpecs }}
-              </span>
-            </div>
-          </a>
-        </td>
-      </tr>
+        <tr ng-repeat="suite in mockSuites" class="text-center">
+          <td>{{ suite.suiteName }}</td>
+          <td ng-repeat="build in suite.builds" class="{{ build.status }}">
+            <a ng-href="#/details/{{ build.id }}">
+              <!-- FAILURE INFO -->
+              <div ng-if="build.status === 'fail'">
+                <span class="label label-success">{{ build.totalPasses }}</span>
+                <span class="label label-danger">{{ build.totalFails }}</span>
+                <span class="label label-default">{{ build.totalSpecs }}</span>
+              </div>
+              <!-- SUCCESS INFO -->
+              <div ng-if="build.status === 'pass'">
+                <span class="text-success">
+                  {{ build.totalSpecs }}
+                </span>
+              </div>
+            </a>
+          </td>
+        </tr>
       </tbody>
     </table>
 

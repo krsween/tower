@@ -9,6 +9,6 @@
   function columnFooters() {
     return function (input) {
       return input;
-    }
+    };
   }
 })();
