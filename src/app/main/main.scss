@@ -1,8 +1,6 @@
 #main {
   .build {
-
     padding: 0;
-
     a {
       display: block;
       padding: 2em 0;
@@ -29,47 +27,6 @@
       }
     }
   }
-
-
-  td,
-  tr,
-  th {
-    -webkit-transition: background-color 250ms;
-    -moz-transition: background-color 250ms;
-    -o-transition: background-color 250ms;
-    transition: background-color 250ms;
-  }
-
-  table {
-    overflow: hidden;
-  }
-
-  td, th {
-    position: relative;
-  }
-
-  td:hover::after,
-  thead th:not(:empty):hover::after,
-  td:focus::after,
-  thead th:not(:empty):focus::after {
-    content: '';
-    height: 10000px;
-    left: 0;
-    position: absolute;
-    top: -5000px;
-    width: 100%;
-    z-index: -1;
-  }
-
-  td:hover::after,
-  th:hover::after {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-
-  tr:hover {
-    background-color: rgba(0, 0, 0, 0.09);
-  }
-
 }
 
 

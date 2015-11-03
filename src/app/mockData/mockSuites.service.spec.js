@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  describe('Service: suites', function () {
+  describe('Service: mockSuites', function () {
 
     // load the service's module
     beforeEach(module('tower'));

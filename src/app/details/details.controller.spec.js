@@ -19,8 +19,8 @@
 
     }));
 
-    it('should define more than 5 awesome things', function() {
-      expect(1).toBe(1);
+    it('should have a collection of suite results defined', function() {
+      expect(scope.singleSuiteResults).toBeDefined();
     });
   });
 })();

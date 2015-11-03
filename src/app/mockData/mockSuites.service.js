@@ -8,8 +8,14 @@
   /** @ngInject */
   function suites ($q, $timeout) {
 
+    // Fictitious limit of rows
     var limit = 10;
 
+    /**
+     * @name generateMocks
+     * @param type - The type (as a string) of mocks to generate.
+     * @returns {Array} - A collection of mocks.
+     */
     function generateMocks(type) {
       var mockData = [];
       for (var i = 0; i < limit; i++) {
@@ -23,6 +29,10 @@
       return mockData;
     }
 
+    /**
+     * @name mockBuilds
+     * @returns {Array} - A collection of mocks build data (ex. passes, fails, etc.)
+     */
     function mockBuilds() {
       var mockBuildData = [];
       for (var i = 0; i < 14; i++) {
@@ -51,6 +61,10 @@
     return {
       get: function (type) {
         // Return a promise (makes it more http-like)
+
+        // TODO: since this sends back a promise to the controller just like and HTTP call, this service should be the
+        // only thing that needs to be refactored when there's live data.
+        
         var deferredSuiteData = $q.defer(),
             mockSuiteData = generateMocks(type);
 
