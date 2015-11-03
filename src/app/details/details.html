@@ -19,8 +19,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr ng-repeat="suite in suites" class="text-center">
-        <td>{{ suite.suiteName }}</td>
+      <tr ng-repeat="spec in singleSuiteResults" class="text-center">
+        <td>{{ spec.specName }}</td>
         <td ng-repeat="build in suite.builds" class="{{ build.status }}">
           <a ng-href="#/{{ build.id }}">
             <!-- FAILURE INFO -->

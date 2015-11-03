@@ -14,7 +14,7 @@
     $scope.suites = [];
 
 
-    mockSuites.get()
+    mockSuites.get('Suite')
       .then(function (mockData) {
         // Assign the response data to the scope.
         $scope.suites = mockData;
