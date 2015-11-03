@@ -64,7 +64,7 @@
 
         // TODO: since this sends back a promise to the controller just like and HTTP call, this service should be the
         // only thing that needs to be refactored when there's live data.
-        
+
         var deferredSuiteData = $q.defer(),
             mockSuiteData = generateMocks(type);
 
