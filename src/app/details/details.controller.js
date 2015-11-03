@@ -6,10 +6,20 @@
     .controller('DetailsController', DetailsController);
 
   /** @ngInject */
-  function DetailsController($scope, $routeParams) {
+  function DetailsController($scope, $routeParams, mockSuites) {
     var vm = this;
     //$scope.singleSuiteResults = mockSingleSuiteResults();
 
+
+    mockSuites.get('mockSpec.functions.utils')
+      .then(function (mockData) {
+        // Assign the response data to the scope.
+        $scope.suites = mockData;
+        // Calculate Column Totals
+        //$scope.suiteColumnTotals = vm.calculateColumnTotals(mockData);
+      }, function () {
+        $log.error('The suites service is failing.');
+      });
 
 
 /*

@@ -8,16 +8,19 @@
   /** @ngInject */
   function suites ($q, $timeout) {
 
-    var mockSuiteData = [],
-        limit = 10;
+    var limit = 10;
 
-    for (var i = 0; i < limit; i++) {
-      var suite = {
-        id: i,
-        suiteName: 'Suite ' + (i+1),
-        builds: mockBuilds()
-      };
-      mockSuiteData.push(suite);
+    function generateMocks(type) {
+      var mockData = [];
+      for (var i = 0; i < limit; i++) {
+        var suite = {
+          id: i,
+          suiteName: type + ' ' + (i+1),
+          builds: mockBuilds()
+        };
+        mockData.push(suite);
+      }
+      return mockData;
     }
 
     function mockBuilds() {
@@ -46,9 +49,10 @@
 
 
     return {
-      get: function () {
+      get: function (type) {
         // Return a promise (makes it more http-like)
-        var deferredSuiteData = $q.defer();
+        var deferredSuiteData = $q.defer(),
+            mockSuiteData = generateMocks(type);
 
         // $timeout mocks latency/load time
         $timeout(function () {
