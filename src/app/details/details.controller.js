@@ -8,33 +8,33 @@
   /** @ngInject */
   function DetailsController($scope, $routeParams) {
     var vm = this;
+    //$scope.singleSuiteResults = mockSingleSuiteResults();
 
-    // vm.awesomeThings = [];
-    // vm.classAnimation = '';
-    // vm.creationDate = 1446412335623;
-    // vm.showToastr = showToastr;
 
-    // activate();
 
-    // function activate() {
-    //   getWebDevTec();
-    //   $timeout(function() {
-    //     vm.classAnimation = 'rubberBand';
-    //   }, 4000);
-    // }
+/*
 
-    // function showToastr() {
-    //   toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-    //   vm.classAnimation = '';
-    // }
-    //
-    // function getWebDevTec() {
-    //   vm.awesomeThings = webDevTec.getTec();
-    //
-    //   angular.forEach(vm.awesomeThings, function(awesomeThing) {
-    //     awesomeThing.rank = Math.random();
-    //   });
-    // }
 
+
+    function mockSingleSuiteResults () {
+      var mockSingleSuite = [];
+      for (var i = 0; i < 25; i++) {
+        var mockTestSpec = {
+          id: i,
+          specName: 'mockSpec.Utility.function ' + i,
+          totalPass: Math.round(Math.random()*10),
+          totalFail: Math.round(Math.random()),
+          totalSpecs: (this.totalPass + this.totalFail),
+          status: this.totalFail === 0 ? 'pass' : 'fail'
+        };
+        mockSingleSuite.push(mockTestSpec);
+      }
+      return mockSingleSuite;
+    }
+
+    function mockDateRangeResults () {
+      return mockDateRage;
+    }
+*/
   }
 })();
