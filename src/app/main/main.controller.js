@@ -7,17 +7,40 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, mockSuites, $log, columnTotals, jenkinsData) {
+  function MainController($scope, mockSuites, $log, columnTotals, baseURL, $http) {
     // Global vars
     $scope.suiteColumnTotals = [];
     $scope.suites = [];
 
-    jenkinsData.get()
-      .then(function (data) {
-        console.log(data.data);
-      }, function (err) {
-        console.log(err);
-      });
+
+
+    /*  -- WIP BEGIN -- */
+
+
+    var bigData = [],
+      i,
+      suiteRunDate = moment().format("YYYYMMDD");
+
+    for (i = 0; i < 14; i++) {
+      $http.get(baseURL + '/suiteRunAggregateByDate/' + suiteRunDate)
+        .then(function (data) {
+          bigData.push(data.data);
+        }, function () {
+          $log.error('The API has thrown an error')
+        });
+      suiteRunDate = moment().subtract(i, 'days').format("YYYYMMDD");
+    }
+
+    window.setTimeout(function () {
+      console.log(bigData);
+    }, 5000);
+
+
+    /*  -- WIP END -- */
+
+
+
+
 
 
     /**
