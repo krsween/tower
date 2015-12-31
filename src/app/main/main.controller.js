@@ -7,10 +7,18 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, mockSuites, $log, columnTotals) {
+  function MainController($scope, mockSuites, $log, columnTotals, jenkinsData) {
     // Global vars
     $scope.suiteColumnTotals = [];
     $scope.suites = [];
+
+    jenkinsData.get()
+      .then(function (data) {
+        console.log(data.data);
+      }, function (err) {
+        console.log(err);
+      });
+
 
     /**
      * @name mockSuites
